@@ -1,7 +1,16 @@
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
 import logo from '../../../public/logo.png'
 import CreateTaskButton from '../CreateTaskButton/CreateTaskButton'
 
-export const Header = () => {
+
+export const Header = ({addCard}) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleUserPop() {
+    setIsOpen((prevState) => !prevState)
+  }
+
   return (
     <header className="header">
     <div className="container">
@@ -17,11 +26,12 @@ export const Header = () => {
           </a>
         </div>
         <nav className="header__nav">
-          <CreateTaskButton />
-          <a href="#user-set-target" className="header__user _hover02">
+          <CreateTaskButton onAddCard={addCard} />
+          <a href="#user-set-target" className="header__user _hover02" onClick={toggleUserPop}>
             Ivan Ivanov
           </a>
-          <div
+          {isOpen && 
+            <div
             className="header__pop-user-set pop-user-set"
             id="user-set-target"
           >
@@ -36,6 +46,8 @@ export const Header = () => {
               <a href="#popExit">Выйти</a>
             </button>
           </div>
+          }
+          
         </nav>
       </div>
     </div>
