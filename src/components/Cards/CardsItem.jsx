@@ -1,28 +1,30 @@
 /* eslint-disable react/prop-types */
-import { Tag } from "./CardItems/ClassName";
+import toggleClasses, { Tag } from "./CardItems/ClassName";
 import TaskName from "./CardItems/TaskName";
+import styles from "./CardsItem.module.css"
 
 export default function CardsItem({title, theme}) {
+
   return (
-    <div className="cards__item">
-    <div className="cards__card card">
-      <div className="card__group">
-        <div className="card__theme _green">
+    <div className={styles["cards__item"]}>
+    <div className={`${styles["cards__card"]} ${styles["card"]}`}>
+      <div className={styles["card__group"]}>
+        <div className={`${styles["card__theme"]} ${toggleClasses(theme)}`}>
           <Tag name={theme}/>
         </div>
         <a href="#popBrowse" target="_self">
-          <div className="card__btn">
+          <div className={styles["card__btn"]}>
             <div />
             <div />
             <div />
           </div>
         </a>
       </div>
-      <div className="card__content">
+      <div className={styles["card__content"]}>
         <a href="" target="_blank">
           <TaskName name={title}/>
         </a>
-        <div className="card__date">
+        <div className={styles["card__date"]}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={13}

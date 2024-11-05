@@ -1,5 +1,4 @@
 
-import './App.css'
 import PopExit from './components/PopExit/PopExit'
 import PopNewCard from './components/PopNewCard/PopNewCard'
 import { PopBrowse } from './components/PopBrowse/PopBrowse'

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
+import styles from './Header.module.css'
 import logo from '../../../public/logo.png'
 import CreateTaskButton from '../CreateTaskButton/CreateTaskButton'
 
@@ -12,37 +13,35 @@ export const Header = ({addCard}) => {
   }
 
   return (
-    <header className="header">
-    <div className="container">
-      <div className="header__block">
-        <div className="header__logo _show _light">
+    <header className={styles.header}>
+    <div className={styles.container}>
+      <div className={styles.header__block}>
+        <div className={`${styles.header__logo} ${styles._show} ${styles._light}`}>
           <a href="" target="_self">
             <img src={logo} alt="logo" />
           </a>
         </div>
-        <div className="header__logo _dark">
-          <a href="" target="_self">
+        <div className={`${styles.header__logo} ${styles._dark}`}>         
+           <a href="" target="_self">
             <img src="images/logo_dark.png" alt="logo" />
           </a>
         </div>
-        <nav className="header__nav">
+        <nav className={styles.header__nav}>
           <CreateTaskButton onAddCard={addCard} />
-          <a href="#user-set-target" className="header__user _hover02" onClick={toggleUserPop}>
+          <a href="#user-set-target" className={`${styles.header__user} ${styles._hover02}`} onClick={toggleUserPop}>
             Ivan Ivanov
           </a>
           {isOpen && 
-            <div
-            className="header__pop-user-set pop-user-set"
-            id="user-set-target"
-          >
+          <div className={`${styles.header__pop_user_set} ${styles.pop_user_set}`} id="user-set-target">
+
             {/* <a href="">x</a> */}
-            <p className="pop-user-set__name">Ivan Ivanov</p>
-            <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-            <div className="pop-user-set__theme">
+            <p className={styles.pop_user_set__name}>Ivan Ivanov</p>
+            <p className={styles.pop_user_set__mail}>ivan.ivanov@gmail.com</p>
+            <div className={styles.pop_user_set__theme}>
               <p>Темная тема</p>
-              <input type="checkbox" className="checkbox" name="checkbox" />
+              <input type="checkbox" className={styles.checkbox} name="checkbox" />
             </div>
-            <button type="button" className="_hover03">
+            <button type="button" className={styles._hover03}>
               <a href="#popExit">Выйти</a>
             </button>
           </div>
